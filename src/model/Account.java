@@ -1,3 +1,7 @@
+package model;
+
+import enums.TransactionType;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +31,7 @@ public class Account {
     }
 
     public void getTransactions() {
-        System.out.println("Transaction History:");
+        System.out.println("model.Transaction History:");
         for (Transaction transaction : transactions) {
             System.out.println(transaction);
         }
@@ -54,6 +58,6 @@ public class Account {
     }
 
     public String details() {
-        return "Account number: " + accountId + ", Account holder name: " + holderName;
+        return "model.Account number: " + accountId + ", model.Account holder name: " + holderName;
     }
 }

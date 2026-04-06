@@ -1,3 +1,5 @@
+package strategies;
+
 public class PaymentStrategyFactory {
     public static PaymentStrategy getStrategy(String type){
         switch(type.toUpperCase()){

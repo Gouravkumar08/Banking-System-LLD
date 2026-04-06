@@ -1,4 +1,8 @@
-public class UPIStrategy implements PaymentStrategy{
+package strategies;
+
+import model.Account;
+
+public class UPIStrategy implements PaymentStrategy {
     @Override
     public void pay(Account from, Account to, double amount) {
         if(from.getBalance()<amount){

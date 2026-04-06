@@ -1,3 +1,9 @@
+package service;
+
+import model.Account;
+import strategies.PaymentStrategy;
+import strategies.PaymentStrategyFactory;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -6,10 +12,10 @@ public class BankService {
 
     public void createAccount(int accNo, String holderName) {
         if (accounts.containsKey(accNo)) {
-            throw new IllegalArgumentException("Account with this number already exists");
+            throw new IllegalArgumentException("model.Account with this number already exists");
         }
         accounts.put(accNo, new Account(accNo, holderName));
-        System.out.println("Account created: " + accNo);
+        System.out.println("model.Account created: " + accNo);
     }
 
     public void deposit(int accNo, double amount) {
@@ -18,7 +24,7 @@ public class BankService {
             System.out.println("Deposit successful: " + amount);
             return;
         }
-        throw new IllegalArgumentException("Account not found");
+        throw new IllegalArgumentException("model.Account not found");
     }
 
     public void transfer(int from, int to, double amount, String mode) {
@@ -42,7 +48,7 @@ public class BankService {
             System.out.println("Withdrawal successful: " + amount);
             return;
         }
-        throw new IllegalArgumentException("Account doesn't exist");
+        throw new IllegalArgumentException("model.Account doesn't exist");
     }
 
     public void checkBalance(int accNo) {
@@ -50,19 +56,19 @@ public class BankService {
             System.out.println("Balance: " + accounts.get(accNo).getBalance());
             return;
         }
-        throw new IllegalArgumentException("Account doesn't exist");
+        throw new IllegalArgumentException("model.Account doesn't exist");
     }
 
     public void accountDetails(int accNo) {
         if (!accounts.containsKey(accNo)) {
-            throw new IllegalArgumentException("Account doesn't exist");
+            throw new IllegalArgumentException("model.Account doesn't exist");
         }
         System.out.println(accounts.get(accNo).details());
     }
 
     public void allTransactions(int accNo) {
         if (!accounts.containsKey(accNo)) {
-            throw new IllegalArgumentException("Account doesn't exist");
+            throw new IllegalArgumentException("model.Account doesn't exist");
         }
         accounts.get(accNo).getTransactions();
     }

@@ -1,3 +1,7 @@
+package strategies;
+
+import model.Account;
+
 public class CreditCardStrategy implements PaymentStrategy {
     @Override
     public void pay(Account from, Account to, double amount) {
